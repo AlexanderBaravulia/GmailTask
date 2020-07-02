@@ -1,5 +1,7 @@
 package actions;
 
+import driver.DriverManager;
+import driver.WebDriverFactory;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +11,7 @@ public class Actions {
 
     public static void click(WebElement webElement) {
         LOGGER.info("Click on {}", webElement);
+        Waiter.waitElementVisible(DriverManager.get(), webElement);
         webElement.click();
     }
 

@@ -57,7 +57,7 @@ public class TestListener implements ITestListener {
     }
 
     private void saveScreenshot(){
-        File screenCapture = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.FILE);
+        File screenCapture = ((TakesScreenshot) DriverManager.get()).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(screenCapture, new File(
                     ".//target/screenshots/"

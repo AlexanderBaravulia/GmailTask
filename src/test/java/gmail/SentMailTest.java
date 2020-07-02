@@ -15,16 +15,13 @@ public class SentMailTest extends TestConditions {
     private final User user = DataProvider.getUser("adasfaasdrf64");
     private final Mail mail = DataProvider.getMail(MESSAGE_SUBJECT);
     private final MailSteps mailSteps = new MailSteps();
+    private final LoginSteps loginSteps = new LoginSteps();
 
     private static final String MESSAGE_SUBJECT = "Hello";
 
-    @BeforeMethod
-    public void before(){
-        new LoginSteps().signIn(user);
-    }
-
     @Test
-    public void sentMailTest(){
+    public void sentMailTest() {
+        loginSteps.signIn(user);
         mailSteps.createNewMail(mail);
         Assert.assertTrue(mailSteps.isMessagePresentInSent(MESSAGE_SUBJECT), "The message is not present in sent mails.");
     }

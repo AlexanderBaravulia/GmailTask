@@ -3,23 +3,29 @@ package conditions;
 import driver.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import org.testng.asserts.SoftAssert;
 
+import java.util.concurrent.TimeUnit;
+
+import static org.openqa.selenium.remote.ErrorCodes.TIMEOUT;
 
 @Listeners({TestListener.class})
 public class TestConditions {
 
-    protected WebDriver driver;
-    protected SoftAssert softAssert;
+    protected WebDriver webDriver;
 
-    @BeforeMethod()
-    public void getUpBrowser(){
-        driver = DriverManager.getDriver();
-        softAssert = new SoftAssert();
+    public TestConditions() {
+        this.webDriver = DriverManager.get();
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void quitBrowser(){
+    @BeforeClass
+    public void setUp() {
+        webDriver = DriverManager.get();
+        webDriver.manage().window().maximize();
+        webDriver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
+    }
+
+    @AfterClass
+    public void tearDown() {
         DriverManager.closeDriver();
     }
 }

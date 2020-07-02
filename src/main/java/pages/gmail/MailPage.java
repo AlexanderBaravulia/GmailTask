@@ -23,10 +23,6 @@ public class MailPage extends BasePage {
     @FindBy(xpath = "//tbody/tr[.//div[text()='Кому: ']]/td[6]")
     private List<WebElement> sentMailSubjectList;
 
-    public boolean isInboxMailLinkPresent(){
-        return Actions.isDisplayed(inboxMailLink);
-    }
-
     public NewMessagePage clickByButtonCreateMail(){
         Actions.click(buttonCreateMail);
         return new NewMessagePage();
@@ -45,5 +41,8 @@ public class MailPage extends BasePage {
         return subjectList;
     }
 
-
+    public boolean validateTheInboxMaiLinkIsPresent(){
+        Waiter.waitElementVisible(driver, inboxMailLink);
+        return Actions.isDisplayed(inboxMailLink);
+    }
 }

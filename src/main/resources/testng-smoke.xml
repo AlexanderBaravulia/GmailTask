@@ -8,6 +8,11 @@
                     <include name="loginWithExistingUserTest"></include>
                 </methods>
             </class>
+            <class name="gmail.SentMailTest">
+                <methods>
+                    <include name="sentMailTest"></include>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
