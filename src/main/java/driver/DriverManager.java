@@ -18,16 +18,18 @@ public class DriverManager {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            String browser = System.getProperty("browser");
+            String browser = PropertyReader.getConfigValue("browser");
             switch (browser) {
                 case "firefox": {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     break;
                 }
-                default: {
+                case "chrome": {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("lang=en-GB");
+                    options.addArguments("disable-user-media-security");
+                    options.addArguments("disable-web-security");
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(options);
                 }

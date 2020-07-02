@@ -10,7 +10,7 @@ import steps.LoginSteps;
 
 public class LoginTest extends TestConditions {
 
-    private final User user = DataProvider.getUser("alex");
+    private final User user = DataProvider.getUser("adasfaasdrf64");
     private LoginSteps loginSteps = new LoginSteps();
 
 
