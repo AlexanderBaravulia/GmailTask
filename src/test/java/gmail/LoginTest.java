@@ -13,10 +13,9 @@ public class LoginTest extends TestConditions {
     private final User user = DataProvider.getUser("adasfaasdrf64");
     private LoginSteps loginSteps = new LoginSteps();
 
-
     @Test
-    public void loginWithExistingUserTest(){
+    public void loginWithExistingUserTest() {
         loginSteps.signIn(user);
-        Assert.assertTrue(new MailPage().isInboxMailLinkPresent(),"The user is not logged in");
+        Assert.assertTrue(new MailPage().validateTheInboxMaiLinkIsPresent(), "The user is not logged in");
     }
 }

@@ -14,5 +14,4 @@ public class Waiter {
         new WebDriverWait(driver, WAIT_TIME)
                 .until(ExpectedConditions.visibilityOf(webElement));
     }
-
 }

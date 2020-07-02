@@ -16,7 +16,7 @@ public class BasePage {
     protected static Logger logger = LogManager.getRootLogger();
 
     protected BasePage(){
-        this.driver = DriverManager.getDriver();
+        this.driver = DriverManager.get();
         PageFactory.initElements(driver, this);
     }
 
