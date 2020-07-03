@@ -2,12 +2,15 @@ package utill;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import lombok.experimental.UtilityClass;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+
+@UtilityClass
 public class JsonParser {
 
     public static <T> List<T> parseToList(String pathToJsonFile, Class<T> clazz) {

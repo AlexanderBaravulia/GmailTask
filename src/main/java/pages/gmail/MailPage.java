@@ -5,9 +5,9 @@ import actions.Waiter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MailPage extends BasePage {
 
@@ -23,7 +23,7 @@ public class MailPage extends BasePage {
     @FindBy(xpath = "//img[@class='gb_Ia gbii']")
     private WebElement accountLogo;
 
-    @FindBy (xpath = "//a[@class='gb_Jb gb_kg gb_sg gb_5e gb_5c']")
+    @FindBy(xpath = "//a[@class='gb_Jb gb_kg gb_sg gb_5e gb_5c']")
     private WebElement logoutButton;
 
     @FindBy(xpath = "//tbody/tr[.//div[text()='Кому: ']]/td[6]")

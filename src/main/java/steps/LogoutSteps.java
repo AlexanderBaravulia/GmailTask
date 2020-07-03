@@ -1,21 +1,23 @@
 package steps;
 
-import model.User;
+import lombok.extern.slf4j.Slf4j;
 import pages.gmail.LoginPage;
 import pages.gmail.MailPage;
 
+
+@Slf4j
 public class LogoutSteps {
 
-    private LoginPage loginPage;
     private MailPage mailPage;
 
     public LogoutSteps(){
-        this.loginPage = new LoginPage();
         this.mailPage = new MailPage();
     }
 
-    public void logout() {
+    public LoginPage logout() {
+        log.info("Logout from the current account");
         mailPage.clickAccountLogo();
         mailPage.clickLogoutButton();
+        return new LoginPage();
     }
 }

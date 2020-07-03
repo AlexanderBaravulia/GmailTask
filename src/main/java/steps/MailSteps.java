@@ -1,32 +1,34 @@
 package steps;
 
+import lombok.extern.slf4j.Slf4j;
 import model.Mail;
 import pages.gmail.MailPage;
-import java.util.List;
+import javax.annotation.Nonnull;
 
+
+@Slf4j
 public class MailSteps {
+
     private MailPage mailPage;
 
     public MailSteps(){
         mailPage = new MailPage();
     }
 
-    public void createNewMail(Mail mail){
+    public void createNewMail(@Nonnull final Mail mail){
+        String recipientAddress = mail.getSentToAddress();
+        log.info("Send new email to the {}", recipientAddress);
         mailPage.clickByButtonCreateMail()
-                .setToAddress(mail.getSentToAddress())
+                .setToAddress(recipientAddress)
                 .setMailTitle(mail.getSubject())
-                .setMailBody(mail.getMessage()).clickSentButton();
+                .setMailBody(mail.getMessage())
+                .clickSentButton();
     }
 
-    public boolean isMessagePresentInSent(String subject){
+    public boolean isMessagePresentInSent(@Nonnull final String subject){
+        log.info("Check if the message with the subject {} is present in the sent mails list", subject);
         mailPage.clickSentMailLink();
-        List<String> sentMailSubjects = mailPage.getSentMailSubjectList();
-        for (String mailSubject : sentMailSubjects){
-            if (mailSubject.contains(subject)){
-                return true;
-            }
-        }
-        return false;
+        return mailPage.getSentMailSubjectList().stream().anyMatch(mailSubject -> mailSubject.contains(subject));
     }
 
 }

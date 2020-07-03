@@ -3,10 +3,10 @@ package conditions;
 import driver.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-
 import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.remote.ErrorCodes.TIMEOUT;
+
 
 @Listeners({TestListener.class})
 public class TestConditions {
