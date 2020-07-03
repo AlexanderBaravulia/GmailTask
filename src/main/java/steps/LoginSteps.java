@@ -17,5 +17,4 @@ public class LoginSteps {
                 .enterPassword(user.getPassword())
                 .clickNextButton();
     }
-
 }

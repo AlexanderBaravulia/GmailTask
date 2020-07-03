@@ -4,7 +4,6 @@ import conditions.TestConditions;
 import model.Mail;
 import model.User;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import service.DataProvider;
 import steps.LoginSteps;
@@ -17,7 +16,7 @@ public class SentMailTest extends TestConditions {
     private final MailSteps mailSteps = new MailSteps();
     private final LoginSteps loginSteps = new LoginSteps();
 
-    private static final String MESSAGE_SUBJECT = "Hello";
+    private static final String MESSAGE_SUBJECT = "Hello Java";
 
     @Test
     public void sentMailTest() {
