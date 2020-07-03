@@ -2,8 +2,8 @@ package driver;
 
 import org.openqa.selenium.WebDriver;
 import utill.PropertyReader;
-
 import java.util.Optional;
+
 
 public class DriverManager {
 
@@ -26,8 +26,7 @@ public class DriverManager {
         });
     }
 
-    public static void closeDriver()
-    {
+    public static void closeDriver() {
         getFromCache().ifPresent(driver -> {
             driver.quit();
             CACHE.remove();

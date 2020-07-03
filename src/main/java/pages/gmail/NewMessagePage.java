@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 
+
 public class NewMessagePage extends BasePage {
 
     @FindBy (name = "to")

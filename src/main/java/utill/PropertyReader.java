@@ -1,10 +1,13 @@
 package utill;
 
+import lombok.experimental.UtilityClass;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+
+@UtilityClass
 public class PropertyReader {
 
     private static final String CONFIG_PATH = "src" + File.separator + "main" + File.separator + "resources"

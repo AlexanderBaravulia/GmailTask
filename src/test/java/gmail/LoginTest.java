@@ -8,10 +8,11 @@ import pages.gmail.MailPage;
 import service.DataProvider;
 import steps.LoginSteps;
 
+
 public class LoginTest extends TestConditions {
 
-    private final User user = DataProvider.getUser("adasfaasdrf64");
-    private LoginSteps loginSteps = new LoginSteps();
+    private final User user = DataProvider.getUser("account1");
+    private final LoginSteps loginSteps = new LoginSteps();
 
     @Test
     public void loginWithExistingUserTest() {

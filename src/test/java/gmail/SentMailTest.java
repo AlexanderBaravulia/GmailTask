@@ -11,7 +11,7 @@ import steps.MailSteps;
 
 public class SentMailTest extends TestConditions {
 
-    private final User user = DataProvider.getUser("adasfaasdrf64");
+    private final User user = DataProvider.getUser("account1");
     private final Mail mail = DataProvider.getMail(MESSAGE_SUBJECT);
     private final MailSteps mailSteps = new MailSteps();
     private final LoginSteps loginSteps = new LoginSteps();

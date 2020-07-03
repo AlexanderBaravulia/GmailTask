@@ -1,28 +1,26 @@
 package conditions;
 
 import driver.DriverManager;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import utill.PropertyReader;
-
 import java.io.File;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class TestListener implements ITestListener {
 
-    private static Logger logger = LogManager.getRootLogger();
+@Slf4j
+public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
-        logger.info("Test started.");
+        log.info("Test started.");
     }
 
     @Override
@@ -32,7 +30,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        logger.error("Step failed. See screenshots.");
+        log.error("Step failed. See screenshots.");
         saveScreenshot();
     }
 
@@ -53,7 +51,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onFinish(ITestContext iTestContext) {
-        logger.info("Test finished");
+        log.info("Test finished");
     }
 
     private void saveScreenshot(){
@@ -64,7 +62,7 @@ public class TestListener implements ITestListener {
                             + getCurrentTimeAsString() +
                             ".png"));
         } catch (IOException e) {
-            logger.error("Failed to save screenshot: " + e.getLocalizedMessage());
+            log.error("Failed to save screenshot: " + e.getLocalizedMessage());
         }
     }
 
