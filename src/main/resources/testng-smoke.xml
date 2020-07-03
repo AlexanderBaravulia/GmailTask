@@ -13,6 +13,11 @@
                     <include name="sentMailTest"></include>
                 </methods>
             </class>
+            <class name="gmail.LogoutTest">
+                <methods>
+                    <include name="logoutWithExistingUserTest"></include>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
